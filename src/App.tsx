@@ -3,7 +3,7 @@ import {
   Routes, 
   Route
 } from 'react-router-dom'
-import Home from './components/home.tsx'
+import Home from './page/Home.tsx'
 import List from './list/List.tsx'
 import Hotel from './hotel/Hotel.tsx'
 
@@ -12,7 +12,7 @@ const App = () => {
 
   return (
    <BrowserRouter>
-     <Routes>
+     <Routes> 
        <Route path="/" element={ <Home /> } />
        <Route path="/hotels" element={ <List /> } />
        <Route path="/hotels/:id" element={ <Hotel /> } />
