@@ -2,16 +2,29 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBed , faPlane , faCar , faTaxi , faCalendarDays, faPerson } from "@fortawesome/free-solid-svg-icons";
 import { DateRange } from 'react-date-range'
+import "react-date-range/dist/styles.css"; 
+import "react-date-range/dist/theme/default.css";
+import { format } from 'date-fns'
 
 export default function Header() {
+
+    const [openDate, setOpenDate] = useState(false)
 
 const [date, setDate] = useState([
     {
         startDate: new Date(),
-        endDate: null,
+        endDate: new Date,
         key: 'selection'
     }
 ])
+
+
+const [openOptions, setOpenOptons] = useState(false)
+const [options, setOptions] = useState({
+    adult: 1, 
+    children: 0,
+    room: 1
+})
 
   return (
     <>
@@ -55,12 +68,25 @@ const [date, setDate] = useState([
             <input type="text" className="cursor-pointer" placeholder="Where are you going" /> 
           <div >
             <FontAwesomeIcon className="" icon={faCalendarDays} />
-           <span className="cursor-pointer pl-3">date to date</span>
+           <span onClick={() => setOpenDate(!openDate)} className="cursor-pointer pl-3">{`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(date[0].endDate, "MM/dd/yyyy")} `}</span>
+         { openDate &&  <DateRange
+                    editableDateInputs={true}
+                    onChange={(item) => setDate([item.selection])}
+                    moveRangeOnFirstSelection={false}
+                    ranges={date}
+                  />}
           </div>
-          
           <div>
             <FontAwesomeIcon className=" " icon={faPerson} />
-            <span className="pl-3 cursor-pointer">2 adult 2 chldren 1 room</span>
+            <span className="pl-3 cursor-pointer">{`${options.adult} adult ${options.children} children ${options.room} room`}</span>
+               <div>
+                <span>
+                    Adults
+                </span>
+                <button> - </button>
+                <span> 1 </span>
+                <button> + </button>
+               </div>
           </div>
           <div className="ml-60">
                   <button className="bg-sky-600 p-1 text-white border border-white">Search</button>
