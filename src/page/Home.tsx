@@ -3,7 +3,7 @@
 
 function Home() {
   return (
-    <div className="font-bold text-green-700">
+    <div>
       <Navbar />
       <Header />
     </div>
