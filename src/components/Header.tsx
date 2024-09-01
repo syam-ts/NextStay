@@ -1,10 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBed ,
-     faPlane ,
-     faCar ,
-    faTaxi ,
-    faCalendarDays } from "@fortawesome/free-solid-svg-icons";
+import { faBed , faPlane , faCar , faTaxi , faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 
 export default function Header() {
   return (
@@ -31,7 +27,7 @@ export default function Header() {
           <span> Airport taxis </span>
         </div>
       </div>
-      <div className="bg-blue-950">
+      <div className="bg-blue-950 h-72">
         <div className="font-bold text-2xl pl-44 text-white">
           <h1>A lifetime of discounts? It's Genius.</h1>
         </div>
@@ -41,24 +37,22 @@ export default function Header() {
             more with a free Lamabooking account
           </p>
         </div>
-        <div className="pl-44 text-white pt-5 pb-24">
+        <div className="pl-44 text-white pt-5 pb-5">
           <button className="bg-sky-600 p-1">Sign in / Register</button>
         </div>
-        <div>
-          <div>
-            <FontAwesomeIcon className="text-white " icon={faBed} />
-            <input type="text" placeholder="Where are you going" />
+        <div className="flex gap-20 ml-44 bg-white mr-96 rounded-sm border border-yellow-400"> 
+            <FontAwesomeIcon className="" icon={faBed} />
+            <input type="text" className="border border-gray-950" placeholder="Where are you going" /> 
+          <div className="border border-gray-900">
+            <FontAwesomeIcon className="" icon={faCalendarDays} />
+           <span className=" pl-3">date to date</span>
           </div>
-          <div>
-            <FontAwesomeIcon className="text-white " icon={faCalendarDays} />
-           <span>date to date</span>
-          </div>
-          <div>
-            <FontAwesomeIcon className="text-white " icon={faBed} />
-            <span>2 adult 2 chldren 1 room</span>
+          <div className="border border-gray-900">
+            <FontAwesomeIcon className=" " icon={faBed} />
+            <span className="pl-3">2 adult 2 chldren 1 room</span>
           </div>
         </div>
       </div>
     </>
-  );
+  )
 }
